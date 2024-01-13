@@ -10,7 +10,7 @@ function App() {
   return (
     <>
     <Header toggle={toggle}/>
-    <div className='d-flex'>
+    <div className='d-flex w-100'>
       <SideBar toggle={toggle}/>
       <Home/>
     </div>

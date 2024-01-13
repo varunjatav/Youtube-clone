@@ -13,7 +13,7 @@ const Header = ({toggle}) => {
   return (
     <div className="d-flex px-4 py-2 h-[100px] align-items-center justify-content-between">
       <div className="d-flex gap-2 align-items-center">
-      <button className="rounded-circle border-0 p-3 btn-hover" onClick={handleToggle}>
+      <button className="rounded-circle border-0 p-3 btn-hover hamBur" onClick={handleToggle}>
         <RxHamburgerMenu className="fs-4"/>
         </button>
         <div className="d-flex align-items-center gap-2">
@@ -26,8 +26,8 @@ const Header = ({toggle}) => {
           <h3 className="fs-3 fw-bold">Youtube</h3>
         </div>
       </div>
-     
-      <div className="rounded-start-pill rounded-end-pill border d-flex align-items-center" style={{ width:"50%" ,height:"50px"}}>
+     <div className=" gap-2 search-bar" style={{width:"50%"}}>
+     <div className="rounded-start-pill rounded-end-pill border d-flex align-items-center" style={{ width:"100%" ,height:"50px"}}>
         <input type="text" placeholder="Search" className="rounded-start-pill border-0 px-3" style={{height:"100%", width:"85%"}} />
         <button className="rounded-end-pill p-2 border-0" style={{height:"100%", width:"15%"}}>
           {" "}
@@ -37,7 +37,9 @@ const Header = ({toggle}) => {
       <button className="rounded-circle border-0 p-3">
         <AiOutlineAudio className="fs-5" />
       </button>
-      <div className="d-flex align-items-center gap-4">
+     </div>
+      
+      <div className="d-flex align-items-center gap-2">
       <button className="rounded-circle border-0 p-3 btn-hover">
         <HiOutlineVideoCamera className="fs-5 "/>
         </button>
@@ -47,10 +49,11 @@ const Header = ({toggle}) => {
         <img
           src="https://th.bing.com/th/id/OIP.h0hPZzAziPf3v-srHQTdWQHaHa?rs=1&pid=ImgDetMain"
           alt="profile-image"
-          width="30px"
-          height="30px"
-          className="rounded-circle"
+          width="35px"
+          height="35px"
+          className="rounded-circle disp-laptop"
         />
+        <CiSearch className="fs-3 disp-mobile" />
       </div>
     </div>
   );

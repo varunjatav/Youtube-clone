@@ -30,36 +30,40 @@ h5{
 .arrow-btn{
     border-radius: 100%;
 }
-
+.search-bar{
+    display: flex;
+}
 
 .scrollable-tab-container{
     font-family: "Roboto", sans-serif;
-    max-width: 1500px;
     margin: 16px auto;
     border-radius: 4px;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
 }
-.scrollable-tab-container .right-arrow svg {
-    width: 24px;
-    height: 24px;
-    padding: 8px;
-    cursor: pointer;
-    color: black;
+.width-expand{
+    width: 95%;
+}
+.width-consise{
+    width: 85%;
 }
 .scrollable-tab-container ul{
     display: flex;
-    gap: 16px;
     padding: 12px 24px;
     margin: 0;
     list-style: none;
     overflow-x: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+
 }
 .scrollable-tab-container ul::-webkit-scrollbar {
     display: none;
 }
+.scrollable-tab-container ul li {
+    margin-right: 16px; /* Add a margin between list items */
+}
+
 .scrollable-tab-container a{
     color: black;
     text-decoration: none;
@@ -84,8 +88,11 @@ h5{
     display: flex;
     align-items: center;
     padding: 0 10px;
+    cursor: pointer;
+    background-color: gainsboro;
     display: none;
 }
+
 .scrollable-tab-container .right-arrow.active,
 .scrollable-tab-container .left-arrow.active{
     display: flex;
@@ -97,4 +104,29 @@ h5{
 }
 .scrollable-tab-container .left-arrow{
     background: linear-gradient(to right ,white 50%, transparent);
+}
+
+.disp-mobile{
+    display: none;
+}
+
+@media screen and (max-width:700px) {
+    .side-bar{
+        display: none;
+    }
+    .hamBur{
+        display: none;
+    }
+    .search-bar{
+        display: none;
+    }
+    .width-mobile{
+        width: 100%;
+    }
+    .disp-laptop{
+        display: none;
+    }
+    .disp-mobile{
+        display: block;
+    }
 }

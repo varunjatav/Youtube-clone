@@ -8,7 +8,7 @@ import { GoVideo } from "react-icons/go";
 import { MdOutlineWatchLater } from "react-icons/md";
 const SideBar = ({ toggle }) => {
   return (
-    <div className={`p-2 ${toggle ? "width-15" : "width-5"}`} style={{height:"800px"}}>
+    <div className={`p-2 ${toggle ? "width-15" : "width-5"} side-bar width-mobile`} style={{height:"800px"}}>
       <div>
         <div
           className="d-flex align-items-center gap-4 btn-hover p-2 rounded"
@@ -47,8 +47,8 @@ const SideBar = ({ toggle }) => {
           </div>
         </div>
       </div>
-      <hr className={`${toggle ? "d-block" : "d-none"}`}/>
-      <div className={`${toggle ? "d-block" : "d-none"}`}>
+      <hr/>
+      <div>
         <h5>
           You <IoIosArrowForward />
         </h5>
@@ -59,7 +59,7 @@ const SideBar = ({ toggle }) => {
           <div className="p-auto" style={{ height: "100%", width: "10%" }}>
             <VscAccount className="fs-4 m-auto" />
           </div>
-          <div className="" style={{ height: "100%", width: "90%" }}>
+          <div className={`${toggle ? "d-block" : "d-none"}`} style={{ height: "100%", width: "90%" }}>
             <h5 className="fs-5">Your Channel</h5>
           </div>
         </div>
@@ -70,7 +70,7 @@ const SideBar = ({ toggle }) => {
           <div className="p-auto" style={{ height: "100%", width: "10%" }}>
             <LiaHistorySolid className="fs-4 m-auto" />
           </div>
-          <div className="" style={{ height: "100%", width: "90%" }}>
+          <div className={`${toggle ? "d-block" : "d-none"}`} style={{ height: "100%", width: "90%" }}>
             <h5 className="fs-5">History</h5>
           </div>
         </div>
@@ -81,7 +81,7 @@ const SideBar = ({ toggle }) => {
           <div className="p-auto" style={{ height: "100%", width: "10%" }}>
             <GoVideo className="fs-4 m-auto" />
           </div>
-          <div className="" style={{ height: "100%", width: "90%" }}>
+          <div className={`${toggle ? "d-block" : "d-none"}`} style={{ height: "100%", width: "90%" }}>
             <h5 className="fs-5">Your Videos</h5>
           </div>
         </div>
@@ -92,7 +92,7 @@ const SideBar = ({ toggle }) => {
           <div className="p-auto" style={{ height: "100%", width: "10%" }}>
             <MdOutlineWatchLater className="fs-4 m-auto" />
           </div>
-          <div className="" style={{ height: "100%", width: "90%" }}>
+          <div className={`${toggle ? "d-block" : "d-none"}`} style={{ height: "100%", width: "90%" }}>
             <h5 className="fs-5">Watch Later</h5>
           </div>
         </div>
