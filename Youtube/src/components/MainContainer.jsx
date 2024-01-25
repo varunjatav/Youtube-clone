@@ -7,25 +7,27 @@ import { fetchVediosAction } from "../store/fetchVediosSlice";
 // Authorization: Bearer [YOUR_ACCESS_TOKEN]
 // Accept: application/json
 // var items ;
-const API_KEY = "AIzaSyArdPFgxStyDfBX-Tc3uu1Kg2R_m61RK_o";
+const API_KEY = "AIzaSyDvUJrvsEnygogqEa52oyigP9KHv4D1OC8";
 
 const MainContainer = () => {
   const dispatch = useDispatch();
-
+  const toggle = useSelector((store) => store.toggle);
+  const vedioItems = useSelector((store) => store.fetchVedios);
+  const search = useSelector((store) => store.search);
  useEffect(() => {
    const getVideos = async () => {
     let response = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?q=trailers&key=${API_KEY}&part=snippet&maxResults=20`
+      `https://youtube.googleapis.com/youtube/v3/search?q=${search}&key=${API_KEY}&part=snippet&maxResults=20`
     );
     const  data  = await response.json();
     // let data = response.json();
      dispatch(fetchVediosAction.fetchVedios(data.items));
-    console.log(data.items);
+    // console.log(data.items);
   };
   getVideos();
  },[])
-  const toggle = useSelector((store) => store.toggle);
-  const vedioItems = useSelector((store) => store.fetchVedios);
+ 
+  console.log("vedio Items: ",vedioItems);
   return (
     <div className="container">
       <div
@@ -33,7 +35,7 @@ const MainContainer = () => {
           toggle ? " row-cols-lg-3" : " row-cols-lg-4"
         } g-2 g-lg-3`}
       >
-        {/* {items.map((item) => <Iframe key={item.id.vedioId} item={item}/>)} */}
+      {vedioItems && vedioItems.map((item,index) => <Iframe key={index} item={item}/>)} 
         <Iframe/>
       </div>
     </div>

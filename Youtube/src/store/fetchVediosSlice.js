@@ -5,8 +5,7 @@ const fetchVediosSlice = createSlice({
     initialState: [],
     reducers: {
         fetchVedios:(state,action) => {
-            console.log(state);
-            state.push(action.payload);
+            state.push(...action.payload);
         }
     }
 });

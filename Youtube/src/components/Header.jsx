@@ -3,12 +3,26 @@ import { CiSearch } from "react-icons/ci";
 import { AiOutlineAudio } from "react-icons/ai";
 import { HiOutlineVideoCamera } from "react-icons/hi";
 import { VscBell } from "react-icons/vsc";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleActions } from "../store/toggleSlice";
+import { searchSliceAction } from "../store/searchSlice";
+import { useRef } from "react";
 const Header = ({toggle}) => {
+  const searchRef = useRef("");
+  // console.log(searchRef.current);
+  const search = useSelector((store) => store.search);
   const dispatch = useDispatch();
   const handleToggle = () => {
     dispatch(toggleActions.handleToggle())
+  };
+  let value;
+  console.log(value);
+  const handleInput = () => {
+     value = searchRef.current;
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(searchSliceAction.searchFunc(value))
   }
   return (
     <div className="d-flex px-4 py-2 h-[100px] align-items-center justify-content-between">
@@ -27,13 +41,13 @@ const Header = ({toggle}) => {
         </div>
       </div>
      <div className=" gap-2 search-bar" style={{width:"50%"}}>
-     <div className="rounded-start-pill rounded-end-pill border d-flex align-items-center" style={{ width:"100%" ,height:"50px"}}>
-        <input type="text" placeholder="Search" className="rounded-start-pill border-0 px-3" style={{height:"100%", width:"85%"}} />
-        <button className="rounded-end-pill p-2 border-0" style={{height:"100%", width:"15%"}}>
+     <form className="rounded-start-pill rounded-end-pill border d-flex align-items-center" onSubmit={handleSubmit} style={{ width:"100%" ,height:"50px"}}>
+        <input type="text" ref={searchRef} placeholder="Search" className="rounded-start-pill border-0 px-3" value={search} onChange={handleInput} style={{height:"100%", width:"85%"}} />
+        <button type="submit" className="rounded-end-pill p-2 border-0" style={{height:"100%", width:"15%"}}>
           {" "}
           <CiSearch className="fs-3" />{" "}
         </button>
-      </div>
+      </form>
       <button className="rounded-circle border-0 p-3">
         <AiOutlineAudio className="fs-5" />
       </button>
