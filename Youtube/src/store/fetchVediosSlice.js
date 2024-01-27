@@ -1,12 +1,39 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
+
+// AIzaSyArdPFgxStyDfBX-Tc3uu1Kg2R_m61RK_o
+const API_KEY = "AIzaSyAnSlPSL5O1WDtMxG8CtAU0j11nPKkAfmI";
+export const getVedios = createAsyncThunk('getVedios', 
+async() => {
+    const response = await fetch(
+        `https://youtube.googleapis.com/youtube/v3/search?q=trailers&key=${API_KEY}&part=snippet&maxResults=20`
+      );
+      const  data  = await response.json();
+      console.log(data);
+      return data;
+}
+);
 
 const fetchVediosSlice = createSlice({
     name: "fetchVedios",
-    initialState: [],
-    reducers: {
-        fetchVedios:(state,action) => {
-            state.push(...action.payload);
-        }
+    initialState: {
+        data: [],
+        loading: false,
+        error: false,
+    },
+   
+    extraReducers: (builder) => {   
+        builder.addCase(getVedios.pending, (state,action) => {
+            state.loading = true;
+        });
+        builder.addCase(getVedios.fulfilled, (state,action) => {
+            console.log(action.payload);
+            state.loading = false;
+            state.data.push(action.payload);
+        });
+        builder.addCase(getVedios.rejected, (state, action) => {
+            console.log('Error', action.payload);
+            state.error = true;
+        })
     }
 });
 

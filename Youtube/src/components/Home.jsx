@@ -25,7 +25,7 @@ const buttonOptions = [
 const Home = () => {
   const toggle=  useSelector(store => store.toggle);
   return (
-    <div className={` ${toggle ? "width-consise" :"width-expand"} width-mobile`}>
+    <div className={` ${toggle ? "width-consise" :"width-expand"} width-mobile mainVedioContainer`}>
       <Tabs buttonOptions={buttonOptions} />
      <MainContainer/>
     </div>

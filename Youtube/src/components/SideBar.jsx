@@ -19,9 +19,9 @@ const SideBar = ({ toggle }) => {
           </div>
           <div
             className={`${toggle ? "d-block" : "d-none"}`}
-            style={{ height: "100%", width: "90%" }}
+            style={{  width: "90%" }}
           >
-            <h5 className={` fs-5`}>Home</h5>
+            <p className="fs-6">Home</p>
           </div>
         </div>
         <div
@@ -32,7 +32,7 @@ const SideBar = ({ toggle }) => {
             <SiYoutubeshorts className="fs-4 m-auto" />
           </div>
           <div className={`${toggle ? "d-block" : "d-none"}`}style={{ height: "100%", width: "90%" }}>
-            <h5 className="fs-5">Shorts</h5>
+            <p className="fs-6">Shorts</p>
           </div>
         </div>
         <div
@@ -43,12 +43,12 @@ const SideBar = ({ toggle }) => {
             <MdOutlineSubscriptions className="fs-4 m-auto" />
           </div>
           <div className={`${toggle ? "d-block" : "d-none"}`}style={{ height: "100%", width: "90%" }}>
-            <h5 className="fs-5">Subscription</h5>
+            <p className="fs-6">Subscription</p>
           </div>
         </div>
       </div>
-      <hr/>
-      <div>
+      <hr className={`${toggle ? "d-block" : "d-none"}`}/>
+      <div className={`${toggle ? "d-block" : "d-none"}`}>
         <h5>
           You <IoIosArrowForward />
         </h5>
@@ -60,7 +60,7 @@ const SideBar = ({ toggle }) => {
             <VscAccount className="fs-4 m-auto" />
           </div>
           <div className={`${toggle ? "d-block" : "d-none"}`} style={{ height: "100%", width: "90%" }}>
-            <h5 className="fs-5">Your Channel</h5>
+            <p className="fs-6">Your Channel</p>
           </div>
         </div>
         <div
@@ -71,7 +71,7 @@ const SideBar = ({ toggle }) => {
             <LiaHistorySolid className="fs-4 m-auto" />
           </div>
           <div className={`${toggle ? "d-block" : "d-none"}`} style={{ height: "100%", width: "90%" }}>
-            <h5 className="fs-5">History</h5>
+            <p className="fs-6">History</p>
           </div>
         </div>
         <div
@@ -82,7 +82,7 @@ const SideBar = ({ toggle }) => {
             <GoVideo className="fs-4 m-auto" />
           </div>
           <div className={`${toggle ? "d-block" : "d-none"}`} style={{ height: "100%", width: "90%" }}>
-            <h5 className="fs-5">Your Videos</h5>
+            <p className="fs-6">Your Videos</p>
           </div>
         </div>
         <div
@@ -93,7 +93,7 @@ const SideBar = ({ toggle }) => {
             <MdOutlineWatchLater className="fs-4 m-auto" />
           </div>
           <div className={`${toggle ? "d-block" : "d-none"}`} style={{ height: "100%", width: "90%" }}>
-            <h5 className="fs-5">Watch Later</h5>
+            <p className="fs-6">Watch Later</p>
           </div>
         </div>
       </div>
@@ -108,7 +108,7 @@ const SideBar = ({ toggle }) => {
             <VscAccount className="fs-4 m-auto" />
           </div>
           <div className="" style={{ height: "100%", width: "90%" }}>
-            <h5 className="fs-5">Your Channel</h5>
+            <p className="fs-6">Your Channel</p>
           </div>
         </div>
         <div
@@ -119,7 +119,7 @@ const SideBar = ({ toggle }) => {
             <LiaHistorySolid className="fs-4 m-auto" />
           </div>
           <div className="" style={{ height: "100%", width: "90%" }}>
-            <h5 className="fs-5">History</h5>
+            <p className="fs-6">History</p>
           </div>
         </div>
         <div
@@ -130,7 +130,7 @@ const SideBar = ({ toggle }) => {
             <GoVideo className="fs-4 m-auto" />
           </div>
           <div className="" style={{ height: "100%", width: "90%" }}>
-            <h5 className="fs-5">Your Videos</h5>
+            <p className="fs-6">Your Videos</p>
           </div>
         </div>
         <div
@@ -141,7 +141,7 @@ const SideBar = ({ toggle }) => {
             <MdOutlineWatchLater className="fs-4 m-auto" />
           </div>
           <div className="" style={{ height: "100%", width: "90%" }}>
-            <h5 className="fs-5">Watch Later</h5>
+            <p className="fs-6">Watch Later</p>
           </div>
         </div>
       </div>
