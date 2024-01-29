@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Iframe = ({item}) => {
 
@@ -15,6 +16,7 @@ const Iframe = ({item}) => {
   },[])
   // console.log("Iframe: ", item);
   return (
+    <Link to={`/${item.id.videoId}`} className='text-decoration-none text-black'>
     <div className="col single-thumbnail">
    
       <img src={item && item.snippet.thumbnails.high.url} alt={item && item.snippet.title} />
@@ -31,6 +33,7 @@ const Iframe = ({item}) => {
         </div>
       </div>
     </div>
+    </Link>
   )
 }
 

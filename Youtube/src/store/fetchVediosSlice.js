@@ -7,7 +7,7 @@ async() => {
     const response = await fetch(
         `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=joji&type=video&part=snippet`
       );
-      const  data  = await response.json();
+      const  data  =  response.json();
     //   console.log(data);
       return data;
 }
@@ -31,7 +31,7 @@ const fetchVediosSlice = createSlice({
             state.data.push(...action.payload.items);
         });
         builder.addCase(getVedios.rejected, (state, action) => {
-            console.log('Error', action.payload);
+            console.log('Error', action.payload.items);
             state.error = true;
         })
     }
