@@ -5,10 +5,10 @@ const API_KEY = "AIzaSyABGl5fZDtdtkF7x1iJlyMMjaHKJc7Edko";
 export const getVedios = createAsyncThunk('getVedios', 
 async() => {
     const response = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=joji&type=video&part=snippet`
+        `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=joji&type=video&part=snippet&maxResults=25`
       );
-      const  data  =  response.json();
-    //   console.log(data);
+      const  data  = await response.json();
+      console.log(data);
       return data;
 }
 );

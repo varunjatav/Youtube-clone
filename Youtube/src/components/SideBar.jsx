@@ -6,14 +6,17 @@ import { VscAccount } from "react-icons/vsc";
 import { LiaHistorySolid } from "react-icons/lia";
 import { GoVideo } from "react-icons/go";
 import { MdOutlineWatchLater } from "react-icons/md";
+import { Link } from "react-router-dom";
 const SideBar = ({ toggle }) => {
   return (
     <div className={`p-2 ${toggle ? "width-15" : "width-5"} side-bar width-mobile`} style={{height:"800px"}}>
       <div>
+      <Link to="/" className="text-decoration-none text-black">
         <div
           className="d-flex align-items-center gap-4 btn-hover p-2 rounded"
           style={{ width: "100%", height: "50px" }}
         >
+          
           <div className="p-auto" style={{ height: "100%", width: "10%" }}>
             <HiMiniHome className="fs-4 m-auto" />
           </div>
@@ -23,7 +26,9 @@ const SideBar = ({ toggle }) => {
           >
             <p className="fs-6">Home</p>
           </div>
+          
         </div>
+        </Link>
         <div
           className="d-flex align-items-center gap-4 btn-hover p-2 rounded"
           style={{ width: "100%", height: "50px" }}

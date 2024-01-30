@@ -1,8 +1,8 @@
 import React from "react";
 
-import Tabs from "./Tabs";
+import Tabs from "../components/Tabs";
 import { useSelector } from "react-redux";
-import MainContainer from "./MainContainer";
+import MainContainer from "../components/MainContainer";
 const buttonOptions = [
   "All",
   "Mixes",

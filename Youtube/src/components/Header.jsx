@@ -5,6 +5,7 @@ import { HiOutlineVideoCamera } from "react-icons/hi";
 import { VscBell } from "react-icons/vsc";
 import { useDispatch } from "react-redux";
 import { toggleActions } from "../store/toggleSlice";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
@@ -20,13 +21,14 @@ const Header = () => {
         <RxHamburgerMenu className="fs-4"/>
         </button>
         <div>
+          <Link to="/">
           <img
             src="./youtube-logo.png"
             alt="youtube-logo"
             width="100px"
             height="100px"
           />
-          
+          </Link>
         </div>
       </div>
      <div className=" gap-2 search-bar" style={{width:"50%"}}>

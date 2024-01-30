@@ -16,7 +16,7 @@ const Iframe = ({item}) => {
   },[])
   // console.log("Iframe: ", item);
   return (
-    <Link to={`/${item.id.videoId}`} className='text-decoration-none text-black'>
+    <Link to={`${item.id.videoId}`} className='text-decoration-none text-black'>
     <div className="col single-thumbnail">
    
       <img src={item && item.snippet.thumbnails.high.url} alt={item && item.snippet.title} />
