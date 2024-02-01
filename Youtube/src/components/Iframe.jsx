@@ -8,7 +8,7 @@ const Iframe = ({item}) => {
   const [desc, setDesc] = useState("");
   if (!item || !item.snippet) {
     // Handle the case where item is undefined or has unexpected properties
-    console.error("Invalid item:", item);
+    // console.error("Invalid item:", item);
     return null; // or render some default content or an error message
   }
   useEffect(() => {

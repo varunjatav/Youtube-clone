@@ -51,12 +51,12 @@ const Header = () => {
           <CiSearch className="fs-3" />
         </button>
       </form>
-      <button className="rounded-circle border-0 p-2" >
+      <button className="rounded-circle border-0 p-2 audio-btn" >
         <AiOutlineAudio className="fs-5" />
       </button>
      </div>
       
-      <div className="d-flex align-items-center gap-2">
+      <div className="d-flex align-items-center gap-2 account-btn-div">
       <button className="rounded-circle border-0 p-2 btn-hover">
         <HiOutlineVideoCamera className="fs-5 "/>
         </button>
@@ -64,7 +64,6 @@ const Header = () => {
         <VscBell className="fs-5"/>
         </button>
         <Avatar/>
-        <CiSearch className="fs-3 disp-mobile" />
       </div>
     </div>
   );

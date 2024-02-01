@@ -133,7 +133,7 @@ h5 {
 .mainVedioContainer{
   position: sticky;
   right: 0;
-  left: 200px;
+  left: 230px;
 }
 .avatar{
     width: 35px;
@@ -150,7 +150,7 @@ h5 {
   .hamBur {
     display: none;
   }
-  .search-bar {
+  .search-bar > .audio-btn{
     display: none;
   }
   .width-mobile {
@@ -161,5 +161,10 @@ h5 {
   }
   .disp-mobile {
     display: block;
+  }
+}
+@media screen and (max-width: 450px) {
+  .account-btn-div{
+    display: none;
   }
 }
