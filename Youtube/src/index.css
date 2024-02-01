@@ -125,14 +125,15 @@ h5 {
 }
 .side-bar{
      max-height: 100vh;
-     position: sticky;
-     top: 0;
+     position: fixed;
+     top: 80px;
      left: 0;
      overflow-y: hidden;
 }
 .mainVedioContainer{
   position: sticky;
   right: 0;
+  left: 200px;
 }
 .avatar{
     width: 35px;

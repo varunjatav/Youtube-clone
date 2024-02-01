@@ -10,7 +10,7 @@ const Video = () => {
   let videoId = useParams();
   console.log(videoId);
   return (
-    <div className="row" style={{ width: "100%" }}>
+    <div className="row" style={{}}>
       <div className="col-8">
         <iframe
           width="100%"

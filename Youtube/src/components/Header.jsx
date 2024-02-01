@@ -3,21 +3,34 @@ import { CiSearch } from "react-icons/ci";
 import { AiOutlineAudio } from "react-icons/ai";
 import { HiOutlineVideoCamera } from "react-icons/hi";
 import { VscBell } from "react-icons/vsc";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleActions } from "../store/toggleSlice";
 import { Link } from "react-router-dom";
+import Avatar from "./Avatar";
+import { useState } from "react";
+import { searchSliceAction } from "../store/searchSlice";
 
 const Header = () => {
 
   const dispatch = useDispatch();
+  const [inputVal, setInputVal] = useState("");
   const handleToggle = () => {
     dispatch(toggleActions.handleToggle())
   };
+  const handleChange = (e) => {
+  e.preventDefault();
+  setInputVal(e.target.value);
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+   dispatch(searchSliceAction.searchFunc(inputVal));
+  };
 
+  console.log("input search: "+ inputVal);
   return (
-    <div className="d-flex px-4 py-0 align-items-center justify-content-between">
+    <div className="d-flex px-3 align-items-center justify-content-between position-fixed top-0 z-2" style={{height: "80px", width:"100%", backgroundColor:"white"}}>
       <div className="d-flex gap-2 align-items-center">
-      <button className="rounded-circle border-0 p-3 btn-hover hamBur" onClick={handleToggle}>
+      <button className="rounded-circle border-0 p-2 btn-hover hamBur" onClick={handleToggle}>
         <RxHamburgerMenu className="fs-4"/>
         </button>
         <div>
@@ -31,32 +44,26 @@ const Header = () => {
           </Link>
         </div>
       </div>
-     <div className=" gap-2 search-bar" style={{width:"50%"}}>
-     <form className="rounded-start-pill rounded-end-pill border d-flex align-items-center" style={{ width:"100%" ,height:"50px"}}>
-        <input type="text" placeholder="Search" className="rounded-start-pill border-0 px-3"  style={{height:"100%", width:"85%"}} />
-        <button type="button" className="rounded-end-pill p-2 border-0" style={{height:"100%", width:"15%"}}>
+     <div className="gap-2 search-bar" style={{width:"50%",height:"40px"}}>
+     <form className="rounded-start-pill rounded-end-pill border d-flex align-items-center " style={{ width:"100%" ,height:"40px"}} onSubmit={handleSubmit}>
+        <input onChange={handleChange} type="text" placeholder="Search" className="rounded-start-pill border-0 px-3"  style={{height:"100%", width:"85%"}} />
+        <button type="submit" className="rounded-end-pill p-2 border-0" style={{height:"100%", width:"15%"}}>
           <CiSearch className="fs-3" />
         </button>
       </form>
-      <button className="rounded-circle border-0 p-3">
+      <button className="rounded-circle border-0 p-2" >
         <AiOutlineAudio className="fs-5" />
       </button>
      </div>
       
       <div className="d-flex align-items-center gap-2">
-      <button className="rounded-circle border-0 p-3 btn-hover">
+      <button className="rounded-circle border-0 p-2 btn-hover">
         <HiOutlineVideoCamera className="fs-5 "/>
         </button>
-        <button className="rounded-circle border-0 p-3 btn-hover">
+        <button className="rounded-circle border-0 p-2 btn-hover">
         <VscBell className="fs-5"/>
         </button>
-        <img
-          src="https://th.bing.com/th/id/OIP.h0hPZzAziPf3v-srHQTdWQHaHa?rs=1&pid=ImgDetMain"
-          alt="profile-image"
-          width="35px"
-          height="35px"
-          className="rounded-circle disp-laptop"
-        />
+        <Avatar/>
         <CiSearch className="fs-3 disp-mobile" />
       </div>
     </div>

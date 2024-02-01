@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import Avatar from './Avatar';
 
 const Iframe = ({item}) => {
 
@@ -16,24 +17,21 @@ const Iframe = ({item}) => {
   },[])
   // console.log("Iframe: ", item);
   return (
-    <Link to={`${item.id.videoId}`} className='text-decoration-none text-black'>
+    
     <div className="col single-thumbnail">
    
       <img src={item && item.snippet.thumbnails.high.url} alt={item && item.snippet.title} />
-      <div className="d-flex align-center justify-start gap-3 p-1">
-        <img
-          src={item && item.snippet.thumbnails.default.url}
-          alt="person"
-        />
+      <div className="d-flex align-center justify-start gap-3 pt-3 py-1">
+      <Avatar imageUrl={item && item.snippet.thumbnails.high.ur}/>
         <div>
-          <p className="fw-bold">
+          <p className="fw-semibold mb-0 text-black">
             {item && Title}
           </p>
-          <p>{item && desc}..</p>
+          <p className="video-para fw-light ">{item && desc}..</p>
         </div>
       </div>
     </div>
-    </Link>
+   
   )
 }
 

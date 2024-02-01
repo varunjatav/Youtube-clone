@@ -6,14 +6,16 @@ import { useSelector } from 'react-redux'
 import { Outlet } from 'react-router-dom'
 
 function App() {
-  const toggle=  useSelector(store => store.toggle)
+  const toggle=  useSelector(store => store.toggle);
 
   return (
     <>
-    <Header toggle={toggle}/>
-    <div className='d-flex w-100'>
-      <SideBar toggle={toggle}/>
+    <Header/>
+    <div className='d-flex w-100 ' style={{marginTop:"60px"}} >
+      <SideBar/>
+      <div className={` ${toggle ? "width-consise" :"width-expand"} width-mobile mainVedioContainer`}>
       <Outlet/>
+      </div>
     </div>
     </>
   )

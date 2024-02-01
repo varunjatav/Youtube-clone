@@ -7,7 +7,9 @@ import { LiaHistorySolid } from "react-icons/lia";
 import { GoVideo } from "react-icons/go";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { Link } from "react-router-dom";
-const SideBar = ({ toggle }) => {
+import { useSelector } from "react-redux";
+const SideBar = () => {
+  const toggle=  useSelector(store => store.toggle)
   return (
     <div className={`p-2 ${toggle ? "width-15" : "width-5"} side-bar width-mobile`} style={{height:"800px"}}>
       <div>
