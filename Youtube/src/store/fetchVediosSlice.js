@@ -3,13 +3,13 @@ import { useSelector } from "react-redux";
 // AIzaSyArdPFgxStyDfBX-Tc3uu1Kg2R_m61RK_o
 
 
-const API_KEY = "AIzaSyABGl5fZDtdtkF7x1iJlyMMjaHKJc7Edko";
+// const API_KEY = "AIzaSyDbDEhMEHW4CNZUXKmvK6JS9IKJ8Maztkw";
 
 // export const getVedios = createAsyncThunk('getVedios', 
-// async(search) => {
+// async() => {
   
 //     const response = await fetch(
-//         `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${search}i&type=video&part=snippet&maxResults=25`
+//         `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=joji&type=video&part=snippet&maxResults=25`
 //       );
 //       const  data  = await response.json();
 //       console.log(data);
