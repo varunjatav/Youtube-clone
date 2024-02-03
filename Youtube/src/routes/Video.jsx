@@ -1,28 +1,38 @@
 import React from "react";
-// import { useParams } from "react-router-dom";
 import RelatedVideo from "../components/RelatedVideo";
 import Avatar from "../components/Avatar";
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import { PiShareFatLight } from "react-icons/pi";
 import { TfiDownload } from "react-icons/tfi";
 import Comments from "../components/Comments";
+import { Link, useParams } from "react-router-dom";
+import YouTube from 'react-youtube';
+import { useSelector } from "react-redux";
 
 const Video = () => {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9,10];
+  const videoId = useParams();
+  console.log(videoId.videoId);
 
+  const VideoItems = useSelector((store) => store.fetchVideos);
+  console.log(VideoItems);
+  const finalVideo = VideoItems.data.filter((item) => {
+    console.log(item.id.videoId);
+    return item.id.videoId === videoId;
+  });
+  console.log("finalVideo", finalVideo);
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9,10];
+  const opts = {
+    height: '550',
+    width: '100%',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  };
   return (
     <div className="row mt-5">
       <div className="col-12 col-lg-8">
-        <iframe
-          width="100%"
-          height="515"
-          src="https://www.youtube-nocookie.com/embed/7LyS3Qpv9gw?si=-BCx8FA2CHOZNdZB"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          className="rounded-3"
-        ></iframe>
+      <YouTube videoId={videoId.videoId} opts={opts}  />
 
         <div>
           <h4>
@@ -107,14 +117,16 @@ const Video = () => {
               placeholder="Add a comment.."
             />
           </div>
-          {arr.slice(0,3).map((item, index) => (
-          <Comments/>
+          {arr.slice(0,4).map((item, index) => (
+          <Comments key={index}/>
         ))}
         </div>
       </div>
       <div className="col-12 col-lg-4">
-        {arr.map((item, index) => (
-          <RelatedVideo key={index} />
+        {VideoItems.data.slice(0,10).map((item, index) => (
+           <Link key={index} to={`/${item.id.videoId}`} className="text-decoration-none">
+          <RelatedVideo key={index} item={item}/>
+          </Link>
         ))}
       </div>
     </div>

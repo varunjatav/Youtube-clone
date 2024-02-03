@@ -19,7 +19,6 @@ const Iframe = ({item}) => {
   return (
     
     <div className="col single-thumbnail">
-   
       <img src={item && item.snippet.thumbnails.high.url} alt={item && item.snippet.title} />
       <div className="d-flex align-center justify-start gap-3 pt-3 py-1">
       <Avatar imageUrl={item && item.snippet.thumbnails.high.ur}/>
@@ -31,7 +30,7 @@ const Iframe = ({item}) => {
         </div>
       </div>
     </div>
-   
+    
   )
 }
 
