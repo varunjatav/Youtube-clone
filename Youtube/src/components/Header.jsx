@@ -7,8 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleActions } from "../store/toggleSlice";
 import { Link } from "react-router-dom";
 import Avatar from "./Avatar";
-import { useState } from "react";
-import { searchSliceAction } from "../store/searchSlice";
+import { useEffect, useState } from "react";
+import searchSlice, { searchSliceAction } from "../store/searchSlice";
 
 const Header = () => {
 
@@ -23,10 +23,11 @@ const Header = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-   dispatch(searchSliceAction.searchFunc(inputVal));
+    // setInputVal(e.target.value);
+    dispatch(searchSliceAction.searchFunc(inputVal));
+   
   };
 
-  console.log("input search: "+ inputVal);
   return (
     <div className="d-flex px-3 align-items-center justify-content-between position-fixed top-0 z-2" style={{height: "80px", width:"100%", backgroundColor:"white"}}>
       <div className="d-flex gap-2 align-items-center">

@@ -21,7 +21,7 @@ const Iframe = ({item}) => {
     <div className="col single-thumbnail">
       <img src={item && item.snippet.thumbnails.high.url} alt={item && item.snippet.title} />
       <div className="d-flex align-center justify-start gap-3 pt-3 py-1">
-      <Avatar imageUrl={item && item.snippet.thumbnails.high.ur}/>
+      <Avatar imageUrl={item && item.snippet.thumbnails.default}/>
         <div>
           <p className="fw-semibold mb-0 text-black">
             {item && Title}

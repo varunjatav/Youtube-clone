@@ -15,20 +15,27 @@ const MainContainer = () => {
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   console.log("Search", search);
   useEffect(() => {
-    dispatch(getVideos());
-  }, []);
+    dispatch(getVideos(search));
+  }, [search]);
 
-  console.log("Video Items: ",VideoItems.data);
+  console.log("Video Items: ", VideoItems.data);
+  console.log("Video Error: ", VideoItems.error);
   return (
     <>
       {VideoItems.loading && (
-      
-          <div className="spinner-border text-danger d-flex  m-auto" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-       
+        <div
+          className="spinner-border text-danger d-flex  m-auto"
+          role="status"
+        >
+          <span className="visually-hidden">Loading...</span>
+        </div>
       )}
-      {VideoItems.error && <div><TbError404/></div>}
+      {VideoItems.error && (
+        <div className="m-auto text-center">
+          <TbError404 className="fs-1" />
+          <h2 className="fs-4 fw-bold">Page Not Found</h2>
+        </div>
+      )}
 
       <div className="container">
         <div
@@ -38,15 +45,14 @@ const MainContainer = () => {
         >
           {VideoItems.data &&
             VideoItems.data.map((item, index) => (
-              <Link key={index} to={`/${item.id.videoId}`} className="text-decoration-none">
+              <Link
+                key={index}
+                to={`/${item.id.videoId}`}
+                className="text-decoration-none"
+              >
                 <Iframe key={index} item={item} />
               </Link>
             ))}
-          {/* {arr.map((item, index) => (
-   <Link key={index} to='/videoId' className="text-decoration-none">
-        <Iframe2 key={index} item={item} />
-        </Link>
-))} */}
         </div>
       </div>
     </>

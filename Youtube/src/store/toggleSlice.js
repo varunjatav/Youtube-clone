@@ -10,5 +10,5 @@ const toggleSlice = createSlice({
     }
 });
 
-export default toggleSlice;
+export default toggleSlice.reducer;
 export const toggleActions = toggleSlice.actions;

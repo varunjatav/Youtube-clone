@@ -6,10 +6,11 @@ const searchSlice = createSlice({
     reducers: {
         searchFunc: (state, action) =>{
             console.log("search Function:",action.payload);
-            return action.payload;
+           // Modify the existing state directly
+           return action.payload;
         }
     }
 });
 
+export default searchSlice.reducer;
 export const searchSliceAction = searchSlice.actions;
-export default searchSlice;

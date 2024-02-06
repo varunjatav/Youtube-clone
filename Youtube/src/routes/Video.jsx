@@ -11,15 +11,21 @@ import { useSelector } from "react-redux";
 
 const Video = () => {
   const videoId = useParams();
-  console.log(videoId.videoId);
+  // console.log(videoId.videoId);
 
   const VideoItems = useSelector((store) => store.fetchVideos);
-  console.log(VideoItems);
+  // console.log(VideoItems);
   const finalVideo = VideoItems.data.filter((item) => {
     console.log(item.id.videoId);
-    return item.id.videoId === videoId;
+    if(item.id.videoId === videoId.videoId)
+    {
+      // console.log("Item mached ",item);
+      return item;
+    }
+    return 0;
+    // return item.id.videoId === videoId;
   });
-  console.log("finalVideo", finalVideo);
+  console.log("finalVideo", finalVideo[0]);
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9,10];
   const opts = {
     height: '550',
@@ -32,51 +38,58 @@ const Video = () => {
   return (
     <div className="row mt-5">
       <div className="col-12 col-lg-8">
-      <YouTube videoId={videoId.videoId} opts={opts}  />
-
-        <div>
-          <h4>
-            How To Master React In 2024 (Complete Roadmap) | A Must-Watch Guide
-            for Frontend Developers
-          </h4>
-          <div className="row">
-            <div className="col-12 col-md-6 d-flex align-items-center justify-content-between">
-              <Avatar />
-              <div>
-                <p className="fw-semibold mb-0">Technical Suneja CLips</p>
-                <p style={{ fontSize: "10px", color: "grey" }}>
-                  633 Subscriber
-                </p>
-              </div>
-
-              <button
-                className="btn btn-dark rounded-pill fw-semibold px-3"
-                style={{ fontSize: "14px" }}
-              >
-                {" "}
-                Subscribe
-              </button>
-            </div>
-            <div className="col-12 col-md-6 d-flex align-items-center justify-content-between">
-              <div>
-                <button className="btn btn-light rounded-start-pill py-1 px-3 border-0">
-                  <AiOutlineDislike /> <span>54</span>
-                </button>
-                <button className="btn btn-light rounded-end-pill py-1 px-3 border-0">
-                  <AiOutlineLike /> <span>54</span>
-                </button>
-              </div>
-              <button className="btn btn-light rounded-pill px-3 border-0">
-                {" "}
-                <PiShareFatLight /> Share
-              </button>
-              <button className="btn btn-light rounded-pill px-3 border-0">
-                {" "}
-                <TfiDownload /> Download
-              </button>
-            </div>
-          </div>
+      
+ <div>  
+  
+ <YouTube videoId={finalVideo[0].id.videoId} opts={opts}  />
+   <div>
+     <h4>
+       {finalVideo[0].snippet.title}
+     </h4>
+     <div className="row">
+       <div className="col-12 col-md-6 d-flex align-items-center justify-content-between">
+        <div className="d-flex align-items-center gap-2 text-center">
+        <Avatar imageUrl={finalVideo[0].snippet.thumbnails.default}/>
+         <div>
+           <p className="fw-semibold mb-0"> {finalVideo[0].snippet.channelTitle}</p>
+           <p style={{ fontSize: "10px", color: "grey" }}>
+             633 Subscriber
+           </p>
+         </div>
         </div>
+        
+
+         <button
+           className="btn btn-dark rounded-pill fw-semibold px-3"
+           style={{ fontSize: "14px" }}
+         >
+           {" "}
+           Subscribe
+         </button>
+       </div>
+       <div className="col-12 col-md-6 d-flex align-items-center justify-content-between">
+         <div>
+           <button className="btn btn-light rounded-start-pill py-1 px-3 border-0">
+             <AiOutlineDislike /> <span>54</span>
+           </button>
+           <button className="btn btn-light rounded-end-pill py-1 px-3 border-0">
+             <AiOutlineLike /> <span>54</span>
+           </button>
+         </div>
+         <button className="btn btn-light rounded-pill px-3 border-0">
+           {" "}
+           <PiShareFatLight /> Share
+         </button>
+         <button className="btn btn-light rounded-pill px-3 border-0">
+           {" "}
+           <TfiDownload /> Download
+         </button>
+       </div>
+     </div>
+   </div>
+   </div>
+      
+       
         <div className="p-3 text-bg-light rounded-3">
           <p className="info">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam

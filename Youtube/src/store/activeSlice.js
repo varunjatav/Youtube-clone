@@ -10,5 +10,5 @@ const activeSlice = createSlice({
     }
 });
 
-export default activeSlice;
+export default activeSlice.reducer;
 export const activeActions = activeSlice.actions;
